@@ -1,0 +1,6 @@
+f= open('data.txt',w)
+f.write("hello\n")
+f.write("world\n")
+text=f.read()
+print(text)
+print(text.split())

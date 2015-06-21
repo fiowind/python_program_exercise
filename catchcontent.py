@@ -7,8 +7,8 @@ import HTMLParser
 import time
 
 
-fin = open("./ycinput.txt", mode='r')
-data = fin.read()
+# fin = open("./ycinput.txt", mode='r')
+# data = fin.read()
 fout = open("./output_action2.txt", mode='w')
 
 
@@ -104,4 +104,4 @@ catchweibo()
 # openwenzhang()
 
 fout.close()
-fin.close()
+# fin.close()

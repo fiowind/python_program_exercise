@@ -72,7 +72,7 @@ def catchweibo():
 		# req.add_header("Accept-Encoding", "gzip, deflate")
 		# req.add_header("Referer", "http://www.google.com.hk/webhp?hl=zh-CN&sourceid=cnhp")
 		# req.add_header("Host", "www.google.com.hk")
-		req.add_header("Cookie", "_T_WM=e2cfe452658fde741a2dfbbb4699a14b; SUB=_2A254guZRDeTxGeNI6FcV9C3NyDyIHXVbjIoZrDV6PUJbrdAKLW71kW1P03fwk7oYcNUi6_Uudkw2z8fBJA..; gsid_CTandWM=4u46dd4a1cD7i6fNipr1enE2f26")
+		req.add_header("Cookie", "SUB=_2A254gn2FDeTxGedM71IS9i7EzD-IHXVbjQPNrDV6PUNbvtBeLU_akW1zsXw2RDF9Def_fvdNGBr7WCWA-w..; SUBP=0033WrSXqPxfM725Ws9jqgMF55529P9D9WWnbKu9EEBeo28P3P8dhTo95JpX5KMt; SUHB=0XDk1CyX5ubFTP; SSOLoginState=1434848725; _T_WM=134f7e71de35b1024ea4cbb891069032")
 		try:
 			res = urllib2.urlopen(req)
 			print 'ok1'

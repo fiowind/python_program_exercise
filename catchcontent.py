@@ -7,8 +7,8 @@ import HTMLParser
 import time
 
 
-# fin = open("./ycinput.txt", mode='r')
-# data = fin.read()
+fin = open("./ycinput.txt", mode='r')
+data = fin.read()
 fout = open("./output_action2.txt", mode='w')
 
 
@@ -20,11 +20,11 @@ def openwenzhang():
 	yuanchuang = reg1.findall(data)
 	for url in yuanchuang:
 		html_parser = HTMLParser.HTMLParser()
-		url = html_parser.unescape(url) #这样就得到了txt = '<abc>'
+		url = html_parser.unescape(url) 
 		# print url
 		req = urllib2.Request(url)
 		req.add_header("User-Agent", "Mozilla/5.0 (X11; Linux x86_64; rv:36.0) Gecko/20100101 Firefox/36.0")
-		req.add_header("Cookie", "_T_WM=e2cfe452658fde741a2dfbbb4699a14b; SUB=_2A254guZRDeTxGeNI6FcV9C3NyDyIHXVbjIoZrDV6PUJbrdAKLW71kW1P03fwk7oYcNUi6_Uudkw2z8fBJA..; gsid_CTandWM=4u46dd4a1cD7i6fNipr1enE2f26")
+		req.add_header("Cookie", "SUB=_2A254gn2FDeTxGedM71IS9i7EzD-IHXVbjQPNrDV6PUNbvtBeLU_akW1zsXw2RDF9Def_fvdNGBr7WCWA-w..; SUBP=0033WrSXqPxfM725Ws9jqgMF55529P9D9WWnbKu9EEBeo28P3P8dhTo95JpX5KMt; SUHB=0XDk1CyX5ubFTP; SSOLoginState=1434848725; _T_WM=134f7e71de35b1024ea4cbb891069032")
 		req.add_header('Accept-Encoding', 'utf-8')
 		try:
 			res = urllib2.urlopen(req)
@@ -62,8 +62,9 @@ def openwenzhang():
 		# print wenzhang
 
 def catchweibo():
+	c = 3362
 	for i in range(6906):
-		pn = (i+1340)
+		pn = (i+c)
 		url = 'http://weibo.cn/1767797335/profile?filter=0&page='+str(pn)			
 		print url
 		req = urllib2.Request(url)
@@ -72,7 +73,7 @@ def catchweibo():
 		# req.add_header("Accept-Encoding", "gzip, deflate")
 		# req.add_header("Referer", "http://www.google.com.hk/webhp?hl=zh-CN&sourceid=cnhp")
 		# req.add_header("Host", "www.google.com.hk")
-		req.add_header("Cookie", "SUB=_2A254gn2FDeTxGedM71IS9i7EzD-IHXVbjQPNrDV6PUNbvtBeLU_akW1zsXw2RDF9Def_fvdNGBr7WCWA-w..; SUBP=0033WrSXqPxfM725Ws9jqgMF55529P9D9WWnbKu9EEBeo28P3P8dhTo95JpX5KMt; SUHB=0XDk1CyX5ubFTP; SSOLoginState=1434848725; _T_WM=134f7e71de35b1024ea4cbb891069032")
+		req.add_header("Cookie", "_T_WM=edf4469bb5245a50aa32006460daa5ae; _T_WL=1; _WEIBO_UID=5638019231; SUB=_2A254gp9aDeTxGeNI6FoR8SfOyD2IHXVbjCESrDV6PUJbrdAKLXOnkW1HSRVVWhAfa6SQUOfsMJvV5z1nWg..; gsid_CTandWM=4u3Fdd4a1W8HT0Rlp91lUnEHN3J")
 		try:
 			res = urllib2.urlopen(req)
 			print 'ok1'
@@ -88,7 +89,8 @@ def catchweibo():
 		# atime = reg2.findall(html)
 		if not yuanchuang:
 			print 'reg none'
-			return
+			c = c-1
+			continue
 		for j in range(0, len(yuanchuang)):
 			# lc = len(yuanchuang)
 			# lc = j+lc-len(atime)
@@ -104,4 +106,4 @@ catchweibo()
 # openwenzhang()
 
 fout.close()
-# fin.close()
+fin.close()

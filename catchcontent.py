@@ -61,7 +61,8 @@ def catchweibo():
 	# c是爬虫起始页
 	for i in range(6906):
 		pn = (i+c)
-		url = 'http://weibo.cn/1767797335/profile?filter=0&page='+str(pn)			
+		url = 'http://weibo.cn/1767797335/profile?filter=0&page='+str(pn)	
+		#上面地址是你要爬的人的微薄url，用weibo.cn访问限制少	
 		print url
 		req = urllib2.Request(url)
 		req.add_header("User-Agent", "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.101 Safari/537.36")

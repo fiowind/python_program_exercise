@@ -55,25 +55,18 @@ def openwenzhang():
 		print wenzhang[0]
 		fout.write(wenzhang[0]+'\n\n')
 
-		# wenzhang = reg2.findall(html)
-		# if not yuanchuang:
-		# 	print 'reg none'	
-		# 	return
-		# print wenzhang
 
 def catchweibo():
 	c = 3362
+	# c是爬虫起始页
 	for i in range(6906):
 		pn = (i+c)
 		url = 'http://weibo.cn/1767797335/profile?filter=0&page='+str(pn)			
 		print url
 		req = urllib2.Request(url)
 		req.add_header("User-Agent", "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.101 Safari/537.36")
-		# req.add_header("Accept-Language", "zh-cn,zh;q=0.8,en-us;q=0.5,en;q=0.3")
-		# req.add_header("Accept-Encoding", "gzip, deflate")
-		# req.add_header("Referer", "http://www.google.com.hk/webhp?hl=zh-CN&sourceid=cnhp")
-		# req.add_header("Host", "www.google.com.hk")
 		req.add_header("Cookie", "_T_WM=edf4469bb5245a50aa32006460daa5ae; _T_WL=1; _WEIBO_UID=5638019231; SUB=_2A254gp9aDeTxGeNI6FoR8SfOyD2IHXVbjCESrDV6PUJbrdAKLXOnkW1HSRVVWhAfa6SQUOfsMJvV5z1nWg..; gsid_CTandWM=4u3Fdd4a1W8HT0Rlp91lUnEHN3J")
+		#上面这行修改自己的cookie，每个cookie大概能爬1000页左右，如果只有一个帐号就隔一个小时之后再爬
 		try:
 			res = urllib2.urlopen(req)
 			print 'ok1'
@@ -92,18 +85,15 @@ def catchweibo():
 			c = c-1
 			continue
 		for j in range(0, len(yuanchuang)):
-			# lc = len(yuanchuang)
-			# lc = j+lc-len(atime)
 			print len(yuanchuang)
 			print yuanchuang[j]
-			# print atime[j]
 			print '\n'
 			fout.write(yuanchuang[j]+'\n'+'\n<br><br>')
 		# time.sleep(0.3)
 
 
 catchweibo()
-# openwenzhang()
+# openwenzhang() #这个是用来爬文章的
 
 fout.close()
 fin.close()
